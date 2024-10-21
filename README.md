@@ -536,9 +536,14 @@ class ProcessRequest implements Invokable, RequestHandlerInterface
     }
 }
 
+class ServerRequest implements ServerRequestInterface
+{
+    // ...
+}
+
 $response = onion([
     new AuthenticateRequest(),
     new AuthorizeRequest(),
     new ProcessRequest(),
-])->peel(new ServerRequestInterface());
+])->peel(new ServerRequest());
 ```
