@@ -22,7 +22,7 @@ final class Onion implements Invokable
         $this->onion = $this->stack([]);
 
         $this->add($layers);
-        $this->setExecptionHandler($this->defaultExceptionHandler());
+        $this->setExceptionHandler($this->defaultExceptionHandler());
     }
 
     public function __invoke(mixed $passable = null): mixed
@@ -59,7 +59,7 @@ final class Onion implements Invokable
         return ($this->onion)($passable);
     }
 
-    public function setExecptionHandler(Closure $handler): self
+    public function setExceptionHandler(Closure $handler): self
     {
         $this->exceptionHandler = $handler;
 
@@ -68,7 +68,7 @@ final class Onion implements Invokable
 
     public function withoutExceptionHandling(): self
     {
-        return $this->setExecptionHandler(fn (Throwable $e): never => throw $e);
+        return $this->setExceptionHandler(fn (Throwable $e): never => throw $e);
     }
 
     /** @param Closure|Invokable|list<Closure|Invokable> $layers */

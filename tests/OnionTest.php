@@ -224,7 +224,7 @@ class OnionTest extends TestCase
 
         Onion\onion([
             fn (): never => throw new Exception('Something went wrong'),
-        ])->setExecptionHandler(
+        ])->setExceptionHandler(
             fn (Throwable $e): never => throw new RuntimeException('Different exception message', 0, $e),
         )->peel();
     }
