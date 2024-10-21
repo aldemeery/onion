@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+    bootstrap="vendor/autoload.php"
+    cacheDirectory=".cache/phpunit"
+    colors="true"
+    requireCoverageMetadata="true"
+    beStrictAboutOutputDuringTests="true"
+>
+    <testsuites>
+        <testsuite name="Unit">
+            <directory suffix="Test.php">tests</directory>
+        </testsuite>
+    </testsuites>
+    <source>
+        <include>
+            <directory>src</directory>
+        </include>
+    </source>
+    <coverage>
+        <report>
+            <text outputFile="php://stdout" showUncoveredFiles="true" showOnlySummary="true"/>
+            <html outputDirectory="./.cache/reports/phpunit" lowUpperBound="70" highLowerBound="95"/>
+            <xml outputDirectory="./.cache/reports/phpunit"/>
+        </report>
+    </coverage>
+    <logging>
+        <junit outputFile="./.cache/reports/phpunit/php_junit.xml"/>
+    </logging>
+    <php>
+        <ini name="memory_limit" value="-1"/>
+    </php>
+</phpunit>

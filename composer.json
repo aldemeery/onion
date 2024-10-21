@@ -1,0 +1,68 @@
+{
+    "name": "aldemeery/onion",
+    "description": "A layering mechanism for PHP applications.",
+    "type": "library",
+    "keywords": ["onion", "middleware", "pipeline", "reducer", "reduce", "compose", "stack", "layer", "layered"],
+    "homepage": "https://github.com/aldemeery/onion",
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/aldemeery/onion/issues",
+        "source": "https://github.com/aldemeery/onion"
+    },
+    "authors": [
+        {
+            "name": "Osama Aldemeery",
+            "email": "aldemeery@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.1"
+    },
+    "require-dev": {
+        "infection/infection": "^0.29.0",
+        "laravel/pint": "^1.16",
+        "laravel/sail": "^1.29",
+        "phpstan/phpstan": "^1.11",
+        "phpstan/phpstan-phpunit": "^1.4",
+        "phpunit/phpunit": "^11.1",
+        "squizlabs/php_codesniffer": "^3.10",
+        "symfony/var-dumper": "^7.0",
+        "thecodingmachine/phpstan-safe-rule": "^1.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Aldemeery\\Onion\\": "src/",
+            "Tests\\Aldemeery\\Onion\\": "tests/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "minimum-stability": "stable",
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true,
+        "allow-plugins": {
+            "infection/extension-installer": true
+        }
+    },
+    "scripts": {
+        "lint": "pint --test",
+        "lint:fix": "pint",
+        "sniff": "phpcs --extensions=php",
+        "sniff:fix": "phpcbf --extensions=php",
+        "analyze:phpstan": "phpstan analyse --memory-limit=6G",
+        "test": "phpunit",
+        "test:mutate": [
+            "Composer\\Config::disableProcessTimeout",
+            "infection --threads=12"
+        ],
+        "code:check": [
+            "@lint",
+            "@sniff",
+            "@analyze:phpstan",
+            "@test",
+            "@test:mutate"
+        ]
+    }
+}
