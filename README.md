@@ -1,5 +1,12 @@
 # 🧅 Onion: A Layering Mechanism for PHP Applications
 
+<p>
+<a href="https://github.com/aldemeery/onion/actions"><img src="https://github.com/aldemeery/onion/actions/workflows/tests.yml/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/aldemeery/onion"><img src="https://img.shields.io/packagist/dt/aldemeery/onion?label=Downloads" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/aldemeery/onion"><img src="https://img.shields.io/packagist/v/aldemeery/onion?label=Latest+Version"" alt="Latest Version"></a>
+<a href="https://github.com/aldemeery/onion/blob/master/LICENSE"><img src="https://img.shields.io/packagist/l/aldemeery/onion?label=License"" alt="License"></a>
+</p>
+
 Onion is a lightweight PHP package designed to facilitate layered processing within applications, It provides a clean and efficient way to stack layers of functionality, allowing developers to create flexible and reusable components that can be easily composed and managed.
 Each layer can perform a specific operation on the data being passed through, making it simple to build complex workflows while maintaining clear separation of concerns.
 
